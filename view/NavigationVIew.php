@@ -19,13 +19,15 @@ public function response() {
 		if ($this->RegisterView->doesUserWantsToRegister()) {
 			//var_dump($this->response .= $this->RegisterView->generateRegisterForm());
 			$this->response .= $this->RegisterView->generateRegisterForm();
+
+			
 			# code...
 		}
-		elseif($this->LogInModel->UserWantsToLogInOrOut() != true){
+		elseif(!$this->LogInModel->UserWantsToLogInOrOut()){
 
 			$this->response .= $this->LoginView->generateLoginFormHTML($message, "Admin");
 		}
-		else{
+		elseif($this->LogInModel->UserWantsToLogInOrOut()){
 			$this->response .= $this->LoginView->generateLogoutButtonHTML($message);
 
 		}

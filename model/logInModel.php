@@ -41,13 +41,13 @@ class LogInModel{
 	}
 	//kollar om användaren vill logga ut eller in 
 	public function UserWantsToLogInOrOut(){
-			if ($_SESSION[self::$LOGGED_IN_SESSION] == true){
-				return true;
-			}
-			else{
+			
+				return $_SESSION[self::$LOGGED_IN_SESSION];
+			// }
+			// else{
 
-				return false;
-			}
+			// 	return false;
+			// }
 		}
 			
 	
